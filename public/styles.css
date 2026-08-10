@@ -188,3 +188,20 @@ footer .container { display: flex; justify-content: space-between; flex-wrap: wr
   .booking-wrap { grid-template-columns: 1fr; }
   .nav-links { display: none; }
 }
+
+/* How it works — feature rows with larger illustrations */
+.feature-row {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;
+  padding: 40px 0; border-bottom: 1px solid var(--border);
+}
+.feature-row:last-child { border-bottom: none; }
+.feature-row.reverse .feature-media { order: 2; }
+.feature-media { background: #fafafa; border: 1px solid var(--border); border-radius: 14px; padding: 20px; }
+.feature-media svg { width: 100%; height: auto; display: block; }
+.feature-text .feature-num { color: var(--muted); font-weight: 700; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 10px; }
+.feature-text h3 { font-size: 1.4rem; margin: 0 0 10px; color: var(--black); letter-spacing: -0.01em; }
+.feature-text p { color: var(--muted); font-size: 0.98rem; margin: 0; max-width: 42ch; }
+@media (max-width: 760px) {
+  .feature-row, .feature-row.reverse { grid-template-columns: 1fr; }
+  .feature-row.reverse .feature-media { order: 0; }
+}
