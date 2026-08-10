@@ -14,12 +14,10 @@ async function loadPricing() {
         ${tier.badge ? `<div class="price-badge">${tier.badge}</div>` : ''}
         <div class="term">${tier.label}</div>
         <div class="amount">${formatGBP(tier.pricePerBoxPence)} <small>/ box / month</small></div>
-        <div class="per">Billed monthly per box</div>
         <ul>
-          <li>Delivery of empty boxes included</li>
-          <li>Live collection-date booking</li>
-          <li>${tier.months >= 12 ? 'Delivery & collection fee waived' : 'One-off delivery & collection fee applies'}</li>
-          <li>Secure off-site storage</li>
+          <li>Delivery included</li>
+          <li>${tier.months >= 12 ? 'Collection fee waived' : 'One-off collection fee'}</li>
+          <li>Secure storage</li>
         </ul>
         <a href="/booking.html?months=${tier.months}" class="btn btn-primary" style="text-align:center;">Choose this plan</a>
       </div>
@@ -27,7 +25,7 @@ async function loadPricing() {
 
     const note = document.getElementById('callout-note');
     if (note) {
-      note.innerHTML = `A one-off delivery &amp; collection fee of ${formatGBP(data.calloutFeePence)} applies on 1, 3 and 6 month plans — waived automatically on 12 month contracts.`;
+      note.innerHTML = `One-off ${formatGBP(data.calloutFeePence)} delivery &amp; collection fee on 1, 3 and 6 month plans — waived on 12 months.`;
     }
 
     const areaList = document.getElementById('area-list');
