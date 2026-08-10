@@ -1,13 +1,20 @@
 const express = require('express');
 const Stripe = require('stripe');
 const pool = require('../db/pool');
-const { PRICING_TIERS, CALLOUT_FEE_PENCE, MAX_COLLECTIONS_PER_DAY, SERVICE_AREA, getTier } = require('../config');
+const { PRICING_TIERS, CALLOUT_FEE_PENCE, MAX_COLLECTIONS_PER_DAY, SERVICE_AREA, BOX_SPEC, MIN_BOXES, MAX_BOXES, getTier } = require('../config');
 
 const router = express.Router();
 const stripe = process.env.STRIPE_SECRET_KEY ? new Stripe(process.env.STRIPE_SECRET_KEY) : null;
 
 router.get('/pricing', (req, res) => {
-  res.json({ tiers: PRICING_TIERS, calloutFeePence: CALLOUT_FEE_PENCE, serviceArea: SERVICE_AREA });
+  res.json({
+    tiers: PRICING_TIERS,
+    calloutFeePence: CALLOUT_FEE_PENCE,
+    serviceArea: SERVICE_AREA,
+    boxSpec: BOX_SPEC,
+    minBoxes: MIN_BOXES,
+    maxBoxes: MAX_BOXES
+  });
 });
 
 // Returns booked counts per day for a given month so the calendar can show live availability.
@@ -42,8 +49,8 @@ router.post('/bookings', async (req, res) => {
   const tier = getTier(contractMonths);
   if (!tier) return res.status(400).json({ error: 'Invalid contract length' });
   const boxCount = parseInt(boxes, 10);
-  if (!Number.isInteger(boxCount) || boxCount < 1) {
-    return res.status(400).json({ error: 'Boxes must be a positive number' });
+  if (!Number.isInteger(boxCount) || boxCount < MIN_BOXES || boxCount > MAX_BOXES) {
+    return res.status(400).json({ error: `Boxes must be between ${MIN_BOXES} and ${MAX_BOXES}` });
   }
 
   const collDate = new Date(collectionDate + 'T00:00:00Z');

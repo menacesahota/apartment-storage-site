@@ -15,8 +15,19 @@ const MAX_COLLECTIONS_PER_DAY = 6;
 
 const SERVICE_AREA = "West Midlands (Birmingham, Wolverhampton, Coventry, Solihull, Dudley, Walsall)";
 
+// Storage box specification, shown to customers and used by the pricing calculator.
+const BOX_SPEC = {
+  volumeLitres: 80,
+  lengthCm: 57,
+  widthCm: 40,
+  depthCm: 40
+};
+
+const MIN_BOXES = 1;
+const MAX_BOXES = 100;
+
 function getTier(months) {
   return PRICING_TIERS.find(t => t.months === Number(months));
 }
 
-module.exports = { PRICING_TIERS, CALLOUT_FEE_PENCE, MAX_COLLECTIONS_PER_DAY, SERVICE_AREA, getTier };
+module.exports = { PRICING_TIERS, CALLOUT_FEE_PENCE, MAX_COLLECTIONS_PER_DAY, SERVICE_AREA, BOX_SPEC, MIN_BOXES, MAX_BOXES, getTier };

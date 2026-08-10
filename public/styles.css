@@ -205,3 +205,10 @@ footer .container { display: flex; justify-content: space-between; flex-wrap: wr
   .feature-row, .feature-row.reverse { grid-template-columns: 1fr; }
   .feature-row.reverse .feature-media { order: 0; }
 }
+
+/* Pricing calculator */
+.calc-wrap { display: grid; grid-template-columns: 1fr 380px; gap: 32px; align-items: start; margin-bottom: 48px; }
+.calc-card .field:last-child { margin-bottom: 0; }
+@media (max-width: 860px) {
+  .calc-wrap { grid-template-columns: 1fr; }
+}

@@ -49,6 +49,11 @@
     wrap.querySelectorAll('.tier-option').forEach(el => {
       el.addEventListener('click', () => selectTier(parseInt(el.dataset.months, 10)));
     });
+    const presetBoxes = parseInt(params.get('boxes'), 10);
+    if (Number.isInteger(presetBoxes) && presetBoxes > 0) {
+      document.getElementById('boxes').value = presetBoxes;
+    }
+
     const preselect = parseInt(params.get('months'), 10);
     selectTier(tiers.find(t => t.months === preselect) ? preselect : tiers[0].months);
   }
