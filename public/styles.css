@@ -212,3 +212,27 @@ footer .container { display: flex; justify-content: space-between; flex-wrap: wr
 @media (max-width: 860px) {
   .calc-wrap { grid-template-columns: 1fr; }
 }
+
+/* Box recommendation page */
+.recommend-wrap { display: grid; grid-template-columns: 1fr 380px; gap: 32px; align-items: start; }
+#size-options .tier-option { text-align: center; }
+.check-list { display: grid; gap: 10px; margin-top: 4px; }
+.check-item {
+  display: flex; align-items: center; justify-content: space-between;
+  border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; cursor: pointer;
+  background: var(--white); transition: border-color .1s ease, background .1s ease;
+}
+.check-item:hover { border-color: #b5b5b5; }
+.check-item.checked { border-color: var(--black); background: #fafafa; }
+.check-item .ci-label { display: flex; align-items: center; gap: 12px; font-size: 0.92rem; color: var(--black); }
+.check-item .ci-box {
+  width: 20px; height: 20px; border: 1.5px solid #b5b5b5; border-radius: 5px;
+  display: flex; align-items: center; justify-content: center; flex: none;
+}
+.check-item.checked .ci-box { background: var(--black); border-color: var(--black); }
+.check-item .ci-box svg { width: 13px; height: 13px; stroke: #fff; display: none; }
+.check-item.checked .ci-box svg { display: block; }
+.check-item .ci-count { color: var(--muted); font-size: 0.82rem; white-space: nowrap; }
+@media (max-width: 860px) {
+  .recommend-wrap { grid-template-columns: 1fr; }
+}

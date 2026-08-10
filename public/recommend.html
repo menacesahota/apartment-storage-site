@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How many boxes do I need? — BlockBox Storage</title>
+<meta name="description" content="Answer a few quick questions and get a recommended number of 80L storage boxes for your apartment.">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container nav">
+    <a href="/" style="text-decoration:none;"><div class="logo">Block<span>Box</span> Storage</div></a>
+    <nav class="nav-links">
+      <a href="/#how-it-works">How it works</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/recommend.html">How many boxes?</a>
+      <a href="/#area">Coverage area</a>
+      <a href="/booking.html" class="btn btn-primary">Book collection</a>
+    </nav>
+  </div>
+</header>
+
+<section style="padding-top:44px;">
+  <div class="container">
+    <h2 style="margin-bottom:6px;">How many boxes do I need?</h2>
+    <p class="section-lead">Tick what you're planning to store — we'll recommend a box count based on our 80L boxes (57 × 40 × 40 cm). You can always fine-tune the exact number when you book.</p>
+
+    <div class="recommend-wrap">
+      <div class="card">
+        <div class="field">
+          <label>Property size <span style="font-weight:400; color:var(--muted);">(sets a starting point)</span></label>
+          <div class="tier-options" id="size-options">
+            <div class="tier-option" data-boxes="2">
+              <span class="t-label">Studio</span>
+              <span class="t-price">~2 boxes</span>
+            </div>
+            <div class="tier-option" data-boxes="4">
+              <span class="t-label">1 bedroom</span>
+              <span class="t-price">~4 boxes</span>
+            </div>
+            <div class="tier-option" data-boxes="7">
+              <span class="t-label">2 bedroom</span>
+              <span class="t-price">~7 boxes</span>
+            </div>
+            <div class="tier-option" data-boxes="10">
+              <span class="t-label">3+ bedroom</span>
+              <span class="t-price">~10 boxes</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>What are you storing? <span style="font-weight:400; color:var(--muted);">(select all that apply)</span></label>
+          <div class="check-list" id="check-list"></div>
+        </div>
+      </div>
+
+      <aside class="card summary-card">
+        <h3>Recommended</h3>
+        <div style="text-align:center; padding:18px 0;">
+          <div id="rec-total" style="font-size:3rem; font-weight:800; color:var(--black); line-height:1;">0</div>
+          <div style="color:var(--muted); font-size:0.9rem; margin-top:6px;">80L boxes</div>
+        </div>
+        <p style="font-size:0.85rem; color:var(--muted); text-align:center; margin:0 0 18px;">This is a starting estimate — adjust the exact count on the booking page.</p>
+        <a href="/booking.html" id="rec-cta" class="btn btn-primary" style="width:100%; text-align:center;">Book this many boxes</a>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div>© <span id="year"></span> BlockBox Storage. West Midlands, UK.</div>
+    <div>hello@blockboxstorage.co.uk</div>
+  </div>
+</footer>
+
+<script src="/recommend.js"></script>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
