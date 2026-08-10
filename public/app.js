@@ -27,7 +27,7 @@ async function loadPricing() {
 
     const note = document.getElementById('callout-note');
     if (note) {
-      note.innerHTML = `📦 A one-off delivery &amp; collection fee of ${formatGBP(data.calloutFeePence)} applies on 1, 3 and 6 month plans — waived automatically on 12 month contracts.`;
+      note.innerHTML = `A one-off delivery &amp; collection fee of ${formatGBP(data.calloutFeePence)} applies on 1, 3 and 6 month plans — waived automatically on 12 month contracts.`;
     }
 
     const areaList = document.getElementById('area-list');
