@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book a collection — BlockBox Storage</title>
+<link rel="stylesheet" href="/styles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container nav">
+    <a href="/" style="text-decoration:none;"><div class="logo">Block<span>Box</span> Storage</div></a>
+    <nav class="nav-links">
+      <a href="/#how-it-works">How it works</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/#area">Coverage area</a>
+    </nav>
+  </div>
+</header>
+
+<section style="padding-top:44px;">
+  <div class="container">
+    <h2 style="margin-bottom:6px;">Book a collection</h2>
+    <p class="section-lead">Tell us about the property, choose a plan, and pick a collection date. You'll pay securely by card on the next step.</p>
+
+    <div id="alert-area"></div>
+
+    <div class="booking-wrap">
+      <form id="booking-form" class="card">
+        <div class="field-row">
+          <div class="field">
+            <label for="propertyName">Apartment block / property name</label>
+            <input type="text" id="propertyName" name="propertyName" required placeholder="e.g. Colmore Heights">
+          </div>
+          <div class="field">
+            <label for="contactName">Your name</label>
+            <input type="text" id="contactName" name="contactName" required placeholder="Property manager or resident">
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="you@example.com">
+          </div>
+          <div class="field">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" required placeholder="07…">
+          </div>
+        </div>
+        <div class="field">
+          <label for="address">Collection address</label>
+          <input type="text" id="address" name="address" required placeholder="Street, city, postcode">
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="boxes">Number of boxes</label>
+            <input type="number" id="boxes" name="boxes" min="1" value="5" required>
+          </div>
+          <div class="field">
+            <label>Collection date</label>
+            <input type="text" id="collectionDate" name="collectionDate" required placeholder="Choose a date" autocomplete="off">
+            <div class="calendar-legend">
+              <span><span class="legend-dot" style="background:#2a9d5c;"></span>Available</span>
+              <span><span class="legend-dot" style="background:#e29e00;"></span>Almost full</span>
+              <span><span class="legend-dot" style="background:#c0392b;"></span>Fully booked</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Contract length</label>
+          <div class="tier-options" id="tier-options"></div>
+        </div>
+
+        <div class="field">
+          <label for="notes">Notes (optional)</label>
+          <textarea id="notes" name="notes" placeholder="Access instructions, buzzer code, best time to collect, etc."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary" id="submit-btn" style="width:100%; margin-top:6px;">Continue to payment</button>
+      </form>
+
+      <aside class="card summary-card">
+        <h3>Order summary</h3>
+        <div class="summary-line"><span>Plan</span><span id="sum-plan">—</span></div>
+        <div class="summary-line"><span>Boxes</span><span id="sum-boxes">—</span></div>
+        <div class="summary-line"><span>Price per box / month</span><span id="sum-perbox">—</span></div>
+        <div class="summary-line"><span>Delivery &amp; collection fee</span><span id="sum-fee">—</span></div>
+        <div class="summary-line total"><span>Due today</span><span id="sum-total">—</span></div>
+        <p style="font-size:0.8rem; color:var(--muted); margin-top:14px;">Billed monthly per box thereafter. Cancel anytime after your minimum contract term.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div>© <span id="year"></span> BlockBox Storage. West Midlands, UK.</div>
+    <div>hello@blockboxstorage.co.uk</div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js"></script>
+<script src="/app.js"></script>
+<script src="/booking.js"></script>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

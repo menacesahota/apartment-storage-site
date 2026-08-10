@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Booking confirmed — BlockBox Storage</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container nav">
+    <a href="/" style="text-decoration:none;"><div class="logo">Block<span>Box</span> Storage</div></a>
+  </div>
+</header>
+<section style="padding-top:80px; text-align:center;">
+  <div class="container" style="max-width:560px;">
+    <div style="font-size:3rem;">✅</div>
+    <h2>Payment successful</h2>
+    <p class="section-lead" style="margin:0 auto 24px;">Thanks — your collection is booked and your subscription is active. A confirmation has been sent to your email.</p>
+    <div class="card" style="text-align:left;" id="booking-details">Loading booking details…</div>
+    <a href="/" class="btn btn-primary" style="margin-top:24px;">Back to home</a>
+  </div>
+</section>
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const bookingId = params.get('booking');
+  if (bookingId) {
+    fetch(`/api/booking/${bookingId}`).then(r => r.json()).then(b => {
+      document.getElementById('booking-details').innerHTML = `
+        <div class="summary-line"><span>Booking ID</span><span>#${b.id}</span></div>
+        <div class="summary-line"><span>Property</span><span>${b.property_name}</span></div>
+        <div class="summary-line"><span>Boxes</span><span>${b.boxes}</span></div>
+        <div class="summary-line"><span>Contract</span><span>${b.contract_months} month(s)</span></div>
+        <div class="summary-line"><span>Collection date</span><span>${b.collection_date}</span></div>
+        <div class="summary-line total"><span>Status</span><span>${b.status}</span></div>
+      `;
+    }).catch(() => {
+      document.getElementById('booking-details').textContent = 'Could not load booking details.';
+    });
+  } else {
+    document.getElementById('booking-details').textContent = '';
+  }
+</script>
+</body>
+</html>

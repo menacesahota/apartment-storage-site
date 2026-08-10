@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BlockBox Storage — Storage boxes for apartment blocks, West Midlands</title>
+<meta name="description" content="Plastic storage boxes delivered to your apartment block, collected and stored off-site. Serving property managers across the West Midlands. Minimum 1 month, cheaper the longer you stay.">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container nav">
+    <div class="logo">Block<span>Box</span> Storage</div>
+    <nav class="nav-links">
+      <a href="#how-it-works">How it works</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#area">Coverage area</a>
+      <a href="/booking.html" class="btn btn-primary">Book collection</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <div>
+      <div class="hero-badge">📍 Now booking across the West Midlands</div>
+      <h1>Storage boxes for apartment block residents — delivered, filled, collected.</h1>
+      <p class="lead">We supply sturdy plastic storage boxes direct to your building, residents pack them at their own pace, and we collect and store them securely off-site. Simple per-box pricing that gets cheaper the longer you stay.</p>
+      <div class="cta-row">
+        <a href="/booking.html" class="btn btn-primary">Book a collection</a>
+        <a href="#pricing" class="btn btn-outline">See pricing</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <ul>
+        <li><span class="num">1</span> Property books boxes for residents — we drop them off at the block.</li>
+        <li><span class="num">2</span> Residents fill their boxes at their own pace.</li>
+        <li><span class="num">3</span> Book a collection date — we pick up and store securely.</li>
+        <li><span class="num">4</span> Pay monthly per box. Longer contracts, lower rates.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="how-it-works">
+  <div class="container">
+    <h2>How it works</h2>
+    <p class="section-lead">Built specifically for apartment blocks and the property managers who run them — no vans to book, no keys to hand over.</p>
+    <div class="steps">
+      <div class="step-card">
+        <div class="step-num">STEP 1</div>
+        <h3>We drop off boxes</h3>
+        <p>Plastic storage boxes delivered straight to the building for residents to use.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">STEP 2</div>
+        <h3>Residents pack up</h3>
+        <p>No rush — fill boxes with seasonal items, documents, or anything that doesn't fit in a flat.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">STEP 3</div>
+        <h3>Book a collection</h3>
+        <p>Pick a collection date on our live calendar. We come to the block and take it from there.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">STEP 4</div>
+        <h3>Secure storage</h3>
+        <p>Boxes are stored safely off-site for as long as needed — 1 month minimum.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing" style="background:#eef2f5;">
+  <div class="container">
+    <h2>Simple, per-box pricing</h2>
+    <p class="section-lead">One price per box, per month. Commit to a longer contract and the monthly rate drops.</p>
+    <div id="pricing-grid" class="pricing-grid">
+      <!-- populated by app.js -->
+    </div>
+    <div class="callout-note" id="callout-note"></div>
+  </div>
+</section>
+
+<section id="area">
+  <div class="container">
+    <div>
+      <h2>Currently serving the West Midlands</h2>
+      <p class="section-lead" id="area-lead">We're launching with apartment blocks across the West Midlands, working directly with property managers and management companies.</p>
+      <div class="area-list" id="area-list"></div>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0;">Property manager?</h3>
+      <p style="color:var(--muted); font-size:0.92rem;">If you manage an apartment block and want to offer residents on-site storage without the hassle, get in touch and we'll set your building up with boxes.</p>
+      <a href="/booking.html" class="btn btn-primary" style="width:100%; text-align:center;">Get started</a>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta">
+  <div class="container">
+    <h2>Ready to book a collection?</h2>
+    <p>Pick your box count, contract length and collection date — pay securely online.</p>
+    <a href="/booking.html" class="btn btn-primary">Book now</a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div>© <span id="year"></span> BlockBox Storage. West Midlands, UK.</div>
+    <div>hello@blockboxstorage.co.uk</div>
+  </div>
+</footer>
+
+<script src="/app.js"></script>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  loadPricing();
+</script>
+</body>
+</html>
